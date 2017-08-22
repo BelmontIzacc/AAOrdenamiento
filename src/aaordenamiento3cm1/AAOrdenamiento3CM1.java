@@ -9,7 +9,6 @@ import Graficar.Graficar;
 import algoritmos.Burbuja;
 import algoritmos.BurbujaOptimizado;
 import algoritmos.NumerosAleatorios;
-import java.util.ArrayList;
 
 /**
  *
