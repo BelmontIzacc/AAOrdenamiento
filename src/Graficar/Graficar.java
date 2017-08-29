@@ -10,6 +10,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -20,63 +21,47 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 public class Graficar {
     
-    private boolean graf;
-    private JFreeChart grafica;
-    private XYSeriesCollection coleccion;
-    private String tituloGrafica, axisXlabel, axisYlabel;
-    
-     public Graficar() {
-        this.tituloGrafica = "Algoritmos Burbuja";
-        this.axisXlabel = "Numero de Valores";
-        this.axisYlabel = "Timepo Total";
-        this.coleccion = new XYSeriesCollection();
+     private JFreeChart grafica;
+    private XYSeriesCollection series;
+    private String ejeX, ejeY,titulo;
+
+    public Graficar(String ejeX, String ejeY, String titulo) {
         this.grafica = null;
+        this.series = new XYSeriesCollection();
+        this.ejeX = ejeX;
+        this.ejeY = ejeY;
+        this.titulo = titulo;
     }
-
-    public boolean isGraf() {
-        return graf;
+    public void agrearSerie(String nombre){
+     XYSeries serie = new XYSeries(nombre);
+     this.series.addSeries(serie);
     }
-
-    public void setGraf(boolean graf) {
-        this.graf = graf;
+    public void agregarDatoASerie(String nombre, XYDataItem dato){
+       this.series.getSeries(nombre).add(dato);
     }
-        
-    @SuppressWarnings("empty-statement")
-    public void agregarSerie(double[] XX,double[] YY, double[] auc){
-       
-//       System.out.println("Valores para la funcion: ");
-//        System.out.println("X->"+XX);
-//        System.out.println("Y->"+YY);
-        
-        
-        XYSeries serie = new XYSeries("Burbuja");
-        XYSeries func = new XYSeries("Burbuja Optimizado");
-
-        for(int i=0;i<XX.length;i++){
-        serie.add(XX[i],YY[i]);
-        func.add(XX[i],auc[i]);
-    }
-          
+    public void agregarSerie(String nombre, double[] datos){
     
-        this.coleccion.addSeries(serie);
-        this.coleccion.addSeries(func);
-       
+        XYSeries serie = new XYSeries(nombre);
+        // agregar cada uno de los datos en la serie 
+        for (int x=0; x < datos.length;x++){
+            serie.add(x, datos[x]);
+        }
+        // agregamos la serie que se generó 
+        this.series.addSeries(serie);
+     
     }
     
-     public void mostrarGrafica() {
-        // Crear la serie con los datos
-        grafica = ChartFactory.createXYLineChart(this.tituloGrafica,
-                this.axisXlabel, 
-                this.axisYlabel, coleccion, PlotOrientation.VERTICAL, true, true, true);
-              
-        ChartFrame panel = new ChartFrame(null, grafica);
-        panel.pack();
-        panel.setVisible(true);
+    public void crearYmostrarGrafica(){
+    
+        this.grafica = ChartFactory.createXYLineChart(titulo, ejeX, ejeY, series);
+        ChartFrame frame = new ChartFrame("Gráfica Comparación ", grafica);
+        frame.setVisible(true);
+        
         
     }
     
     
-    public void removeSeries(){
-        this.coleccion.removeAllSeries();
-    }
+            
+    
+    
 }
