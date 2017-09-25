@@ -43,14 +43,15 @@ public class Seleccion implements Algoritmo{
                 { 
                     menor = arreglo[j]; //menor que el actual                       //2
                     pos = j;                                                        //1
-                    this.intercambios++;
+                    
                 } 
             }
             if(pos!= i){ // si hay alguno menor se intercambia                      // 1
                      tmp = arreglo[i];                                              //2
                      arreglo[i] = arreglo[pos];                                     //3
                      arreglo[pos] = tmp;                                            //2
-                 }
+                     this.intercambios++;
+            }
         }    
           this.tiempoFinal = System.currentTimeMillis();
           this.tiempoTotal=tiempoFinal-tiempoInicio;        

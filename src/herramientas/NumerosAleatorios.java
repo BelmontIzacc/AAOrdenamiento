@@ -14,13 +14,13 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class NumerosAleatorios {
     
-   public static double[] datos (int n,int limite){
+   public static double[] datos (int tam){
        
-       double[] arreglo=new double[n]; 
+       double[] arreglo=new double[tam]; 
        
-       for (int x=0;x<n;x++){
+       for (int x=0;x<tam;x++){
        //arreglo[x] = (int) (Math.random()*max)+1;
-       arreglo[x] = ThreadLocalRandom.current().nextInt(0, limite);
+       arreglo[x] = ThreadLocalRandom.current().nextInt(0, tam);
        }
        return arreglo;
        //this.datos = arreglo;

@@ -21,7 +21,7 @@ import org.jfree.data.xy.XYSeriesCollection;
  */
 public class Graficar {
     
-     private JFreeChart grafica;
+    private JFreeChart grafica;
     private XYSeriesCollection series;
     private String ejeX, ejeY,titulo;
 
