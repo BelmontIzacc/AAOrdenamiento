@@ -9,7 +9,7 @@ package algoritmos;
  *
  * @author Belmont
  */
-public class mergesort {
+public class mergershort implements Algoritmo{
     
     private double tiempoInicio;
     private double tiempoFinal;
@@ -17,7 +17,7 @@ public class mergesort {
     private int intercambios;
     private int comparaciones;
     
-    public mergesort()
+    public mergershort()
     {
         this.tiempoInicio = 0;
         this.tiempoFinal = 0;
@@ -27,7 +27,7 @@ public class mergesort {
     };
     
     public void mergesort(double A[],int izq, int der){
-         this.tiempoInicio = System.currentTimeMillis();
+         
     if (izq<der){
             int m=(izq+der)/2;
             mergesort(A,izq, m);
@@ -52,7 +52,7 @@ public class mergesort {
               if (B[i]<=B[j])
                   {
                       A[k++]=B[i++];
-                      
+                      this.intercambios++;
                   }
               else{
                       A[k++]=B[j++];
@@ -62,7 +62,19 @@ public class mergesort {
               while (i<=m){ //copia los elementos que quedan de la
                             A[k++]=B[i++]; //primera mitad (si los hay)
               }
-          this.tiempoFinal = System.currentTimeMillis();
-          this.tiempoTotal=tiempoFinal-tiempoInicio;
+          
   }
+
+    @Override
+    public void ordenar(double[] arreglo) {
+        this.tiempoInicio = System.currentTimeMillis();
+        mergesort(arreglo,0,arreglo.length-1);
+        this.tiempoFinal = System.currentTimeMillis();
+        this.tiempoTotal=tiempoFinal-tiempoInicio;
+    }
+
+    @Override
+    public double getTiempo_total() {
+        return tiempoTotal;
+    }
  }
