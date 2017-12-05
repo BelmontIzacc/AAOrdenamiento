@@ -31,15 +31,15 @@ public class AAOrdenamiento3CM1 {
         System.out.println();
 
         ArrayList<Algoritmo> algoritmos = new ArrayList<>();
-//        algoritmos.add(new Burbuja());
-//        algoritmos.add(new BurbujaOptimizado());
+        algoritmos.add(new Burbuja());
+        algoritmos.add(new BurbujaOptimizado());
         algoritmos.add(new InsertShort());
         algoritmos.add(new Seleccion());
         algoritmos.add(new RecursiveBinarySearch());
         algoritmos.add(new mergershort()); //mejor advanzado 
-        //algoritmos.add(new QuickSort()); //mejor facil modificacion
+        algoritmos.add(new QuickSort()); //mejor facil modificacion
         
-        Comparador comparador = new Comparador(algoritmos, 10, 1000);
+        Comparador comparador = new Comparador(algoritmos, 10, 100);
         comparador.compararAlgoritmos();
         System.out.println();
     }

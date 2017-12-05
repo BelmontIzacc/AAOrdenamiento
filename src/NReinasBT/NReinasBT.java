@@ -26,9 +26,8 @@ public class NReinasBT {
         this.solucion = new int [n];
         for(int x =0 ; x<n;x++)
         {
-            this.solucion[x] = -1;
+            this.solucion[x] = 0;
         }
-        System.out.println();
         return buscar(solucion,0);
     }
     
@@ -42,10 +41,9 @@ public class NReinasBT {
         do
         {
             solucion[etapa]= solucion[etapa]+1; //selecciona una nueva opcion
-            System.out.println();
             if(valido(solucion,etapa))
             {
-               if(etapa < n)
+               if(etapa!= n)
                {
                    exito = buscar(solucion,etapa+1);
                }
@@ -54,8 +52,7 @@ public class NReinasBT {
                    exito=true;
                }
             }
-            System.out.println();
-        }while(solucion[etapa]!=n || !exito);
+        }while(solucion[etapa]==n && exito);
         
         return exito;
     }
@@ -69,14 +66,11 @@ public class NReinasBT {
                 return false;
             }
         }
-        System.out.println();
         return true;
     }
     
     public int valAbs(int solucion, int etapa)
     {
-       
-        System.out.println();
-        return solucion-etapa;
+        return Math.abs(solucion-etapa);
     }
 }
