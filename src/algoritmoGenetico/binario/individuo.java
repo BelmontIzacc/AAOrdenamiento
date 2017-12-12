@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package algoritmoGenetico;
+package algoritmoGenetico.binario;
 
 /**
  *
@@ -30,7 +30,7 @@ public class individuo {
         calculaFitness();
     }
 
-    private void calculaDeco() 
+    public void calculaDeco() 
     {
         for(int x = 0 ; x<=15 ; x++ )
         {
@@ -41,7 +41,7 @@ public class individuo {
         }
     }
 
-    private void calculaFitness() 
+    public void calculaFitness() 
     {
         //valor maximo 262138
         this.fitness = (4 * this.decodificacion) - 2; // 4x - 2
@@ -58,6 +58,12 @@ public class individuo {
     public int getDecodificacion() {
         return decodificacion;
     }
+
+    @Override
+    public String toString() {
+        return "individuo{" + "fitness=" + fitness + ", decodificacion=" + decodificacion + '}';
+    }
+
     
     
 }

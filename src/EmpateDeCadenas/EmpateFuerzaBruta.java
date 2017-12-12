@@ -50,11 +50,7 @@ public class EmpateFuerzaBruta {
             }
             c=0;                      
         }        
-        if(val[0] == n)
-        {
             return correctos;
-        }
-        return -1;
     }
     private void inicializarAleatoriamente() 
     {

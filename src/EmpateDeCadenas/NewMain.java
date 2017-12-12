@@ -29,7 +29,6 @@ public class NewMain {
 //        System.out.println(r.calcularHash(f.secuencia));
         System.out.println(r.calcularHash(n));
         System.out.println("veces encontrado : "+res);
-        System.out.println("Posicion Inicio = "+f.posI+"\n Posicion Final = "+f.posF);
     
     }
     
